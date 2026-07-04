@@ -28,7 +28,7 @@
 <meta property="og:description" content="欢迎来到我的博客这是我的第一篇文章，我今天刚在github上创建了自己的blog，目的是记录自己的科研经历，今天是2026年7月3日，今天将是我科研道路的起点。 科研主题：微表情识别接下来我将阅读导师发我的文章先对微表情识别这个领域进行初步认识，这里附上链接：https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;149928673?from&#x3D;singlemessage 让我们开始吧boy~前期">
 <meta property="og:locale">
 <meta property="article:published_time" content="2026-07-03T07:22:56.000Z">
-<meta property="article:modified_time" content="2026-07-03T09:24:12.075Z">
+<meta property="article:modified_time" content="2026-07-04T18:08:57.525Z">
 <meta property="article:author" content="welsely">
 <meta name="twitter:card" content="summary">
 
@@ -85,7 +85,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Navigationsleiste an/ausschalten">
+    <div class="toggle" aria-label="تشغيل شريط التصفح">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -115,12 +115,12 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Startseite</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archiv</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>الأرشيفات</a>
 
   </li>
   </ul>
@@ -172,16 +172,22 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
-              
+              <span class="post-meta-item-text">نُشر في</span>
 
-              <time title="Erstellt: 2026-07-03 15:22:56 / Geändert am: 17:24:12" itemprop="dateCreated datePublished" datetime="2026-07-03T15:22:56+08:00">2026-07-03</time>
+              <time title="أُنشأ: 2026-07-03 15:22:56" itemprop="dateCreated datePublished" datetime="2026-07-03T15:22:56+08:00">2026-07-03</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">عُدل في</span>
+                <time title="عُدل: 2026-07-05 02:08:57" itemprop="dateModified" datetime="2026-07-05T02:08:57+08:00">2026-07-05</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">في</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/%E7%A7%91%E7%A0%94%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">科研学习记录</span></a>
                 </span>
@@ -202,7 +208,7 @@
 <h2 id="科研主题：微表情识别"><a href="#科研主题：微表情识别" class="headerlink" title="科研主题：微表情识别"></a>科研主题：微表情识别</h2><p>接下来我将阅读导师发我的文章先对微表情识别这个领域进行初步认识，这里附上链接：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/149928673?from=singlemessage">https://zhuanlan.zhihu.com/p/149928673?from=singlemessage</a></p>
 <h2 id="让我们开始吧boy"><a href="#让我们开始吧boy" class="headerlink" title="让我们开始吧boy~"></a>让我们开始吧boy~</h2><h3 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h3><h4 id="微表情概述"><a href="#微表情概述" class="headerlink" title="微表情概述"></a>微表情概述</h4><p>微表情（MEs）是一种非常短暂、微妙且非自发的面部表情，通常发生在人们有意或无意隐藏真实情绪时<br>与普通面部表情（宏表情）相比，微表情持续时间极短，通常在<strong>1&#x2F;25</strong>到<strong>1&#x2F;5</strong>秒之间（公认上限为0.5秒），且具有强度低和面部动作单元（Action Units）碎片化的特征<br>由于微表情时间短且强度低，人类肉眼很难准确感知（即使经过培训，准确率也通常低于50%）。<br>自动微表情分析主要包括两个任务：<strong>微表情定位</strong>（寻找视频中微动作发生的时间区间）和<strong>微表情识别</strong>（为微表情序列分配情绪类别标签）。</p>
 <h4 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h4><p><strong>CASME II</strong>是一个新型自发微表情数据库，包含 247 个微表情样本，比以往的微表情数据库规模更大。这些微表情是在严格控制的实验室环境下诱发的，并由高速摄像机（200 fps）记录以下是相关论文链接：<br><a target="_blank" rel="noopener" href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0086041">https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0086041</a><br>数据集链接：<br><a target="_blank" rel="noopener" href="http://casme.psych.ac.cn/casme/c5">http://casme.psych.ac.cn/casme/c5</a><br><em>目前还未申请，需要联系导师</em></p>
-<h3 id="人脸预处理"><a href="#人脸预处理" class="headerlink" title="人脸预处理"></a>人脸预处理</h3><p>目前主流方法:<br>1.信号放大与去噪预处理<br>欧拉视频放大（EVM）<br>论文：Eulerian Video Magnification for Revealing Subtle Changes in the World<br>链接：<a target="_blank" rel="noopener" href="https://people.csail.mit.edu/mrub/papers/vidmag.pdf">https://people.csail.mit.edu/mrub/papers/vidmag.pdf</a></p>
+<h3 id="人脸预处理"><a href="#人脸预处理" class="headerlink" title="人脸预处理"></a>人脸预处理</h3><p>目前主流方法:<br>1.信号放大与去噪预处理<br>欧拉视频放大（EVM）<br>论文：Eulerian Video Magnification for Revealing Subtle Changes in the World<br>链接：<a target="_blank" rel="noopener" href="https://people.csail.mit.edu/mrub/papers/vidmag.pdf">https://people.csail.mit.edu/mrub/papers/vidmag.pdf</a><br>现在，我通过阅读欧拉运动放大的论文，作者的结论是可以用像素差值近似模拟时空运动，通过增加像素即夸大颜色变化来放大运动。相比学界之前广泛知道的拉格朗日法（预测运动），有计算量小，对硬件需求低的特点，并且，他对空间噪声即图像的纹理噪声并不敏感，而这恰恰是拉格朗日法的痛点。但是欧拉法对时间噪声敏感（我的理解是在锐利的边缘即高频部分，一旦移动，就会在时间域上产生明显的梯度变化，这时，高频噪声的影响可能较大）所以，综上，欧拉法擅长处理底噪大的视频，而拉格朗日法擅长处理高清的视频。但是，这取决于是不是微小动作，因为欧拉法的理论建立在一阶泰勒展开，也就是微小变化的基础上.</p>
 
     </div>
 
@@ -264,10 +270,10 @@
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          Inhaltsverzeichnis
+          المحتويات
         </li>
         <li class="sidebar-nav-overview">
-          Übersicht
+          عام
         </li>
       </ul>
 
@@ -288,12 +294,12 @@
           <a href="/archives/">
         
           <span class="site-state-item-count">1</span>
-          <span class="site-state-item-name">Artikel</span>
+          <span class="site-state-item-name">المقالات</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
         <span class="site-state-item-count">1</span>
-        <span class="site-state-item-name">Kategorien</span>
+        <span class="site-state-item-name">التصنيفات</span>
       </div>
   </nav>
 </div>
@@ -325,7 +331,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">welsely</span>
 </div>
-  <div class="powered-by">Erstellt mit  <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">تطبيق الموقع <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
   </div>
 
         
