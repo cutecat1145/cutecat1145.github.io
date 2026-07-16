@@ -81,7 +81,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="تشغيل شريط التصفح">
+    <div class="toggle" aria-label="Navigationsleiste an/ausschalten">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -111,12 +111,12 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Startseite</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>الأرشيفات</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archiv</a>
 
   </li>
   </ul>
@@ -168,22 +168,22 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">نُشر في</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
 
-              <time title="أُنشأ: 2026-07-03 15:22:56" itemprop="dateCreated datePublished" datetime="2026-07-03T15:22:56+08:00">2026-07-03</time>
+              <time title="Erstellt: 2026-07-03 15:22:56" itemprop="dateCreated datePublished" datetime="2026-07-03T15:22:56+08:00">2026-07-03</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">عُدل في</span>
-                <time title="عُدل: 2026-07-14 01:12:44" itemprop="dateModified" datetime="2026-07-14T01:12:44+08:00">2026-07-14</time>
+                <span class="post-meta-item-text">Bearbeitet am</span>
+                <time title="Geändert am: 2026-07-16 23:17:15" itemprop="dateModified" datetime="2026-07-16T23:17:15+08:00">2026-07-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
-              <span class="post-meta-item-text">في</span>
+              <span class="post-meta-item-text">in</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/%E7%A7%91%E7%A0%94%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">科研学习记录</span></a>
                 </span>
@@ -213,6 +213,29 @@
 <p><em>2026.7.10</em><br>今天我阅读了使用光流法进行微表情识别的论文：<br><em>Less is More: Micro-expression Recognition from Video using Apex Frame</em><br>这篇论文的核心方法就是 Bi-WOOF：Bi-Weighted Oriented Optical Flow，中文可以译作：<br>双重加权方向光流特征<br>我是这样理解的：<br>我懂了，这篇论文的工作有以下几点：1使用onset帧和apex帧测量光流；2将图像分割为n个block，在每个block对该区域的光流直方图进行加权组合，再使用optical strain即，对光流变化多样性为权重对各个block再进行加权，组合得出光流特征<br>这是gpt给我的意见：<br><img src="/images/7.png" alt="7"><br><em>2026.7.13</em><br>今天我阅读了让微表情识别从手工设计特征传统光流先验与深度特征学习相结合的混合方法的经典论文：<br><em>OFF-ApexNet on Micro-expression Recognition System</em><br>中文可以翻译为：<br><em>用于微表情识别系统的 OFF-ApexNet</em><br>首先，作者延续了Bi-Woof的观点，也就是使用onset和apex帧：因为这可以大大减少视频的冗余并保留最关键的视频帧<br>这篇论文工作的大致思路是先使用onset和apex帧提取光流，再将水平运动和垂直运动分别输入卷积神经网络中，再在后面使用两层全连接层进行特征融合<br>（当然，作者做过对比试验，并发现使用u+v比单纯使用u或者单纯使用v的效果好）最后通过softmax输出3类微表情。</p>
 <p>接下来我又学习了STSTNet，其代表论文是：<br><em>Shallow Triple Stream Three-dimensional CNN (STSTNet) for Micro-expression Recognition</em><br>专业中文译名可以写成：<br><em>《用于微表情识别的浅层三流三维卷积神经网络 STSTNet》</em><br>作者使用了一个三位的卷积神经网络，三个特征维度分别是u，v，optical strain（光学应变）<br>其中u负责水平运动特征，v负责垂直运动特征，optical strain负责面部肌肉变化特征，通过光流场的空间梯度计算得到，能够突出局部拉伸、压缩和剪切形变；对于理想的一致刚性平移，由于各像素位移相同，其空间梯度接近零，所以opticl strain可以用于排除整张脸的平移所导致的误差<br>并将三者堆叠为28×28×3 的运动特征立方体，随后，这三个通道经过三个并行的单次卷积层，最后展平成400维后，直接通过softmax输出。<br>本文的主要贡献不在于使用了将u，v，optical strain堆叠为三通道输入，（然后将同一输入送入三个并行的浅层卷积分支；三个分支分别使用3、5、8个卷积核，提取不同容量的联合运动—形变特征。）而且似乎作者并没有做相关交融试验来证明这种三个流分开的方法比单分支16个卷积核好<br>本文的主要贡献在于，他说明了，在微表情识别这个领域，由于较小的样本数量，使用过深层的神经网络会导致过拟合，可能导致模型利用身份、外观、光照或数据库环境等与微表情类别无关的捷径特征，而不是学习可泛化的微表情运动模式学习<br>使用较小的输入分辨率和较简单的网络模型，反而有利于微表情识别任务的训练。作者也给出了证据：<br><img src="/images/8.png" alt="8"><br><img src="/images/9.png" alt="9"><br>STSTNet只有约0.00167M参数，却在复合数据库上获得0.7353的UF1和0.7605的UAR，超过了OFF-ApexNet及多种大型CNN基线。<br>这说明在小样本任务中，减少模型容量、压缩冗余信息并保留任务相关的运动与形变特征，可能比单纯增加网络深度更有效。</p>
 <p>当然，作者的工作存在一定的问题，以下是gpt的输出：<br><img src="/images/10.png" alt="10"><br>今天的学习就这样吧，晚上对论文进行一下复现。</p>
+<p><em>2026.7.16</em><br>今天我阅读了<em>Revealing the Invisible with Model and Data Shrinking for Composite-database Micro-expression Recognition</em><br>专业中文可以译为：<br>《通过模型与数据双重缩减揭示不可见信息：面向复合数据库的微表情识别》<br><em>或者可以称为RCN</em><br>我之前阅读的off-ApexNet和STSTNet都把SMIC、CASME II、SAMM 合并起来训练。<br>这种方法的好处是显而易见的，就是扩大了训练数据集，但是问题也随之而来：<br><em>Domain Shift，域偏移</em><br>三个数据库存在明显差异：<br>相机型号不同；<br>帧率不同；<br>图像分辨率不同；<br>光照条件不同；<br>人种分布不同；<br>SAMM 使用灰度图并使用 LED 减少闪烁；<br>apex 标注方式不同；<br>人脸预处理方法不同。</p>
+<p>因此，模型输入里同时包含两类变化：<br><em>真正的微表情变化+数据库之间的环境差异</em><br>而微表情运动非常细微，数据库差异却可能很明显<br>而结果就是：<br>网络可能更容易识别“这张图来自哪个数据库”，而不是识别“这个人出现了什么微表情”。<br>这就引出了一个基本矛盾：<br>表达能力强不等于跨数据库泛化能力强<br>而作者通过实验发现：<br><em>较低分辨率的输入数据和较浅的网络结构，有助于减缓深层模型在复合数据库任务中的性能退化</em><br>基于这一发现，该文提出一种循环卷积网络 RCN，同时探索浅层网络结构和低分辨率输入，从而同步降低模型复杂度与输入复杂度<br>接下来让我们大概介绍一下作者的工作<br>作者首先设计了四种不同深度的网络：<br>Model 1	1个普通卷积层<br>Model 2	1个普通卷积层 + 1个循环卷积层<br>Model 3	1个普通卷积层 + 2个循环卷积层<br>Model 4	1个普通卷积层 + 3个循环卷积层<br>同时测试不同光流图分辨率：<br>20 40 60 80 100 150 200 250 300</p>
+<p>其中，作者把：<br>网络层数称为模型复杂度；<br>输入分辨率称为输入复杂度。<br>论文第3页 Figure 1 显示：<br>Model 1、Model 2 等较浅模型表现较好；<br>Model 3、Model 4 明显下降；<br>输入超过 100×100 后，深层模型性能下降尤其明显；<br>较浅模型对低分辨率输入更稳定<br>因此，论文不是简单说：</p>
+<p>分辨率越低越好。</p>
+<p>而是说：</p>
+<p>对复合数据库微表情识别而言，存在一个合适的低分辨率区间；过高分辨率可能引入更多数据库特有噪声，而过低分辨率也可能丢失微表情信息。<br>后续实验中，作者主要使用：<br>60×60<br>和：<br>100×100<br>而不是无限制地继续降低分辨率。<br><em>这篇论文的基本输入</em><br>作者仍使用了onset和apex帧<br>并计算光流约束<br>接着，作者使用了Model 2 作为主干网络，因为它在表达能力与域偏移过拟合之间取得了较好平衡。<br>也就是<br>一个普通卷积层；<br>一个循环卷积层；<br>自适应平均池化；<br>线性分类层。<br>循环卷积有共享参数的特点，所以它既可以有“有效深度”又不会线性地增加网络参数<br>每次卷积后还使用：</p>
+<p>BN+ReLU</p>
+<p>最后通过最大池化降低特征图尺寸<br>其次，作者做了三个拓展模块:<br>单纯把网络做浅、输入缩小，会出现另一个问题：</p>
+<p>过拟合减少但表达能力也可能下降</p>
+<p>因此作者提出三个模块，目标是：</p>
+<p>不增加额外可学习参数，但提升浅层网络的表示能力。</p>
+<p>模块一：<br>使用空洞卷积使模型在不增加深度的情况下，扩大感受野</p>
+<p>模块二：<br>在网络中加入类似resnet的残差连接<br>用于：<br>保留早期细微信息；<br>减少反复卷积造成的信息损失；<br>改善梯度传播；<br>让循环卷积更容易训练</p>
+<p>模块三：<br>作者借鉴CAM，使用已有特征图和分类层权重构造注意力图<br>来引入注意力</p>
+<p><em>特征图数量实验</em></p>
+<p>作者测试：</p>
+<p>8,16,32,64,128,256</p>
+<p>个特征通道。</p>
+<p>结果显示：</p>
+<p>增加到适当数量会改善性能；<br>继续增加到128或256后，性能可能下降；<br>不同模块的最佳通道数不同。</p>
+<p>这说明：<br>在复合数据库任务中，表达能力存在一个最佳范围，不是越强越好。<br>更多通道既能描述更多微表情模式，也能描述更多数据库噪声。</p>
+<p><em>运动放大为什么反而降低性能</em><br>在直觉上，微表情运动很小，放大后应该会更容易识别<br>但<br>作者通过实验发现：<br>在此实验中，使用运动放大后模型的性能出现了不同程度的下降<br>这是因为，在复合的数据库中，运动放大会放大域误差，如：<br>闪烁；<br>对齐误差；<br>光照变化；<br>不同相机噪声；<br>apex 定位偏差<br>所以“增强信号”并不一定提高信噪比<br><em>但是，在单数据库中，噪声结构比较一致，运动放大可能有效</em></p>
+<p>最后总结一下这篇论文的结论：<br>该论文的核心结论是：在小样本且存在明显域偏移的复合数据库任务中，提高输入分辨率和模型复杂度不一定带来更好的识别效果；适 当地缩减数据与模型，可以抑制域噪声，而通过参数共享和无额外参数模块，仍然能够保持足够的微表情特征表示能力。</p>
 
       
     </div>
@@ -272,10 +295,10 @@
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          المحتويات
+          Inhaltsverzeichnis
         </li>
         <li class="sidebar-nav-overview">
-          عام
+          Übersicht
         </li>
       </ul>
 
@@ -295,12 +318,12 @@
           <a href="/archives/">
         
           <span class="site-state-item-count">1</span>
-          <span class="site-state-item-name">المقالات</span>
+          <span class="site-state-item-name">Artikel</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
         <span class="site-state-item-count">1</span>
-        <span class="site-state-item-name">التصنيفات</span>
+        <span class="site-state-item-name">Kategorien</span>
       </div>
   </nav>
 </div>
@@ -332,7 +355,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">welsely</span>
 </div>
-  <div class="powered-by">تطبيق الموقع <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">Erstellt mit  <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
   </div>
 
         
