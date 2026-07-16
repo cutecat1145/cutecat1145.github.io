@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"cutecat1145.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"cutecat1145.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="欢迎来到我的博客这是我的第一篇文章，我今天刚在github上创建了自己的blog，目的是记录自己的科研经历，今天是2026年7月3日，今天将是我科研道路的起点。 科研主题：微表情识别接下来我将阅读导师发我的文章先对微表情识别这个领域进行初步认识，这里附上链接：https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;149928673?from&#x3D;singlemessage 让我们开始吧boy~前期">
@@ -157,6 +157,7 @@
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
+  <div class="reading-progress-bar"></div>
 
 
     <main class="main">
@@ -407,6 +408,7 @@
 
   
   <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 
@@ -442,6 +444,24 @@
   
 
   
+<div class="blog-tools" aria-label="博客工具">
+  <button class="blog-tool" id="blog-theme-toggle" type="button" aria-label="切换深色模式" title="切换深色模式">◐</button>
+  <button class="blog-tool" id="blog-top" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+</div>
+<script>
+  (function () {
+    var root = document.body;
+    var theme = document.getElementById('blog-theme-toggle');
+    var top = document.getElementById('blog-top');
+    if (!theme || !top) return;
+    if (localStorage.getItem('blog-theme') === 'dark') root.classList.add('dark-mode');
+    theme.addEventListener('click', function () {
+      root.classList.toggle('dark-mode');
+      localStorage.setItem('blog-theme', root.classList.contains('dark-mode') ? 'dark' : 'light');
+    });
+    top.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  }());
+</script>
 
 </body>
 </html>
